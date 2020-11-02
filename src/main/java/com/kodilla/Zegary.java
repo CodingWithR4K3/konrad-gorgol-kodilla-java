@@ -20,13 +20,17 @@ class Zegary {
                 this.minutes = minutes;
             }
 
+            public String toString() {
+                return (name + ": " + hours + ":" + minutes);
+            }
+
             public String timeTick() {
                 minutes = minutes + 1;
                 if (minutes == 60) {
                     hours++;
                     minutes = 0;
                 }
-                return (name + ": " + hours + ":" + minutes);
+                return toString();
             }
         }
 
