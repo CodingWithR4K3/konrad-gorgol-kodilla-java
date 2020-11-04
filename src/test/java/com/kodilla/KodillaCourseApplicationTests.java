@@ -7,7 +7,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 class KodillaCourseApplicationTests {
 
     @Test
-    void contextLoads() {
+    void contextLoad() {
+        System.out.println("It Loads!");
     }
 
 }
