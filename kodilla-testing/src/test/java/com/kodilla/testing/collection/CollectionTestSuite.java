@@ -35,7 +35,7 @@ public class CollectionTestSuite {
         ArrayList<Integer> numberList = OddNumbersExterminator.exterminate(emptyList);
         System.out.println("Testing Exterminator" + numberList);
         //Then
-        Assertion.assertEquals(emptyList, numberList);
+        Assertions.assertEquals(emptyList, numberList);
     }
 
     @DisplayName("Test with a list")
@@ -49,6 +49,6 @@ public class CollectionTestSuite {
         ArrayList<Integer> numberList = OddNumbersExterminator.exterminate(normalList);
         System.out.println("Testing Exterminator" + numberList);
         //Then
-        Assertion.assertEquals(oddList, numberList);
+        Assertions.assertEquals(oddList, numberList);
     }
 }
