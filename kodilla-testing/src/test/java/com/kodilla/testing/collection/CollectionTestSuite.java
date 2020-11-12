@@ -1,6 +1,4 @@
 package com.kodilla.testing.collection;
-
-import org.junit.Assert;
 import org.junit.jupiter.api.*;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -36,7 +34,7 @@ public class CollectionTestSuite {
         ArrayList<Integer> numberList = OddNumbersExterminator.exterminate(emptyList);
         System.out.println("Testing Exterminator" + numberList);
         //Then
-        Assert.assertEquals(emptyList, numberList);
+        Assertions.assertEquals(emptyList, numberList);
     }
 
     @DisplayName("Test with a list")
@@ -50,6 +48,6 @@ public class CollectionTestSuite {
         ArrayList<Integer> numberList = OddNumbersExterminator.exterminate(normalList);
         System.out.println("Testing Exterminator" + numberList);
         //Then
-        Assert.assertEquals(oddList, numberList);
+        Assertions.assertEquals(oddList, numberList);
     }
 }
