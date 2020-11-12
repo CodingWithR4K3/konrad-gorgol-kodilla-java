@@ -2,7 +2,11 @@ package com.kodilla.testing.user;
 
 public class SimpleUser {
 
+<<<<<<< HEAD
     private final String username;
+=======
+   private String username;
+>>>>>>> 153e89befbb1ba355fc88720428a682137bcff7a
     private String realName;
 
     public SimpleUser(String username) {

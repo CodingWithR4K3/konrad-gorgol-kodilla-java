@@ -1,4 +1,8 @@
 package com.kodilla.testing.collection;
+<<<<<<< HEAD
+=======
+
+>>>>>>> 153e89befbb1ba355fc88720428a682137bcff7a
 import org.junit.jupiter.api.*;
 import java.util.ArrayList;
 import java.util.Arrays;
