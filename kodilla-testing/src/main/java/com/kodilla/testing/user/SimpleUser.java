@@ -2,8 +2,8 @@ package com.kodilla.testing.user;
 
 public class SimpleUser {
 
-    String username;
-    String realName;
+   private String username;
+    private String realName;
 
     public SimpleUser(String username) {
         this.username = username;
