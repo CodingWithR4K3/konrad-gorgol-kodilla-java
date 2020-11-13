@@ -2,16 +2,16 @@ package com.kodilla.testing.shape;
 
 public class Triangle implements Shape {
 
-    String shapeName;
-    double field;
+    private final String shapeName;
+    private final double field;
 
     public Triangle(double sideLength, double height) {
         this.shapeName = "triangle";
-        this.field = sideLength * height;
+        this.field = sideLength * height * 0.5;
     }
 
     public String getShapeName() {
-        return this.shapeName;
+        return shapeName;
     }
 
     public double getField() {

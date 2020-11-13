@@ -2,9 +2,10 @@ package com.kodilla.testing.shape;
 
 import java.util.ArrayList;
 
-public class ShapeCollector {
+public final class ShapeCollector {
 
-    private ArrayList<Shape> shapeList = new ArrayList<Shape>();
+
+    private final ArrayList<Shape> shapeList;
 
     public ShapeCollector(ArrayList<Shape> shapeList) {
         this.shapeList = shapeList;
@@ -18,9 +19,9 @@ public class ShapeCollector {
         shapeList.remove(shape);
     }
 
-    public Shape getFigure(int n) {
-        if (n < shapeList.size() && n >= 0) {
-            return shapeList.get(n);
+    public Shape getFigure(int index) {
+        if (index < shapeList.size() && index >= 0) {
+            return shapeList.get(index);
         } else {
             return null;
         }

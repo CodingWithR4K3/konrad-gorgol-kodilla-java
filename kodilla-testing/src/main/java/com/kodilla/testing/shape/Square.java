@@ -2,8 +2,8 @@ package com.kodilla.testing.shape;
 
 public class Square implements Shape {
 
-    String shapeName;
-    double field;
+    private final String shapeName;
+    private final double field;
 
     public Square(double sideLength) {
         this.shapeName = "square";
@@ -11,11 +11,11 @@ public class Square implements Shape {
     }
 
     public String getShapeName() {
-        return this.shapeName;
+        return shapeName;
     }
 
     public double getField() {
-        return this.field;
+        return field;
     }
 
 
