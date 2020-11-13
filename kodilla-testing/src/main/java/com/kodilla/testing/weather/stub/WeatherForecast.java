@@ -25,14 +25,11 @@ public class WeatherForecast {
     public double calculateAverageTemperature(Map<String, Double> temperatureMap) {
 
         double resultOfAverage = 0;
-        double result = 0;
-        for (Map.Entry<String, Double> temperatures : temperatureMap.entrySet()) {
-            resultOfAverage = resultOfAverage + temperatures.getValue();
-            result = resultOfAverage / temperatureMap.size();
+        for (Double temperatures : temperatures.getTemperatures().values()) {
+            resultOfAverage += temperatures;
         }
-        return result;
+        return resultOfAverage / temperatureMap.size();
     }
-
     public double calculateMedianOfTemperature(Map<String, Double> temperatureMap) {
 
         List<Double> listOfTemp = new ArrayList<>();
