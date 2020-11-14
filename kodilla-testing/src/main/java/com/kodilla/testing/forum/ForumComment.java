@@ -2,9 +2,9 @@ package com.kodilla.testing.forum;
 
 public class ForumComment {
 
-    private ForumPost forumPost;
-    private String commentBody;
-    private String author;
+    private final ForumPost forumPost;
+    private final String commentBody;
+    private final String author;
 
     public ForumComment(ForumPost forumPost, String commentBody, String author) {
         this.forumPost = forumPost;
