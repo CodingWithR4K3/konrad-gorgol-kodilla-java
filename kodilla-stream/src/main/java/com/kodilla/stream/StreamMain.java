@@ -1,23 +1,17 @@
 package com.kodilla.stream;
 
-import com.kodilla.stream.lambda.ExpressionExecutor;
-import com.kodilla.stream.reference.FunctionalCalculator;
+import com.kodilla.stream.beautifier.PoemBeautifier;
 
 public class StreamMain {
 
-    public static void main(String[] args) {
-        ExpressionExecutor expressionExecutor = new ExpressionExecutor();
+    public static void main(final String[] args) {
 
-        System.out.println("Calculating expressions with lambdas");
-        expressionExecutor.executeExpression(10, 5, (a, b) -> a + b);
-        expressionExecutor.executeExpression(10, 5, (a, b) -> a - b);
-        expressionExecutor.executeExpression(10, 5, (a, b) -> a * b);
-        expressionExecutor.executeExpression(10, 5, (a, b) -> a / b);
+        final PoemBeautifier poemBeautifier = new PoemBeautifier();
 
-        System.out.println("Calculating expressions with method references");
-        expressionExecutor.executeExpression(3, 4, FunctionalCalculator::multiplyAByB);
-        expressionExecutor.executeExpression(3, 4, FunctionalCalculator::addAToB);
-        expressionExecutor.executeExpression(3, 4, FunctionalCalculator::subBFromA);
-        expressionExecutor.executeExpression(3, 4, FunctionalCalculator::divideAByB);
+        poemBeautifier.beautify(("Nothing lasts."), textToBeautify -> new StringBuilder(textToBeautify).reverse().toString());
+        poemBeautifier.beautify("If you could see yourselves as I see you. Toy soldiers in tin plate, beasts who howl for honor, standing as one.", (textToBeautify -> "ABC" + textToBeautify + "ABC"));
+        poemBeautifier.beautify("For the Horde!", (textToBeautify -> "\uD83D\uDD25\uD83D\uDD25" + textToBeautify + "\uD83D\uDD25\uD83D\uDD25"));
+        poemBeautifier.beautify("I have no time for games, yet I always seem to be in them.", String::toUpperCase);
+        poemBeautifier.beautify("Stand with me, or fall before me.", String::toLowerCase);
     }
 }
