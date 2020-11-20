@@ -6,6 +6,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+import static java.time.temporal.ChronoUnit.DAYS;
 import static java.util.stream.Collectors.toList;
 import static org.junit.Assert.assertEquals;
 
@@ -146,5 +147,25 @@ class BoardTestSuite {
 
         //Then
         assertEquals(2, longTasks);
+    }
+
+    @Test
+    void testAddTaskListAverageWorkingOnTask() {
+
+        //Given
+        Board data = prepareTestData();
+
+        //When
+        List<TaskList> inProgressTasks = new ArrayList<>();
+        inProgressTasks.add(new TaskList("In progress"));
+
+        double average = data.getTaskLists().stream()
+                .filter(inProgressTasks::contains)
+                .flatMap(taskList -> taskList.getTasks().stream())
+                .mapToLong(task -> DAYS.between(task.getCreated(), LocalDate.now()))
+                .average().orElseThrow();
+
+        //Then
+        assertEquals(10.0, average, 0.01);
     }
 }
