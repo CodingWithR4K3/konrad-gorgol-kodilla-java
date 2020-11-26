@@ -2,8 +2,8 @@ package com.kodilla.exception.test;
 
 public class ExceptionHandling {
 
-    double x;
-    double y;
+    private final double x;
+    private final double y;
 
     public ExceptionHandling(double x, double y) {
         this.x = x;
