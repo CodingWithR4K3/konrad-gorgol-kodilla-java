@@ -6,6 +6,7 @@ import com.kodilla.rps.shapes.*;
 import java.util.Scanner;
 
 public class MainRound implements Round {
+
     private final int roundNumber;
     private final Scanner roundScanner = new Scanner(System.in);
     private boolean roundEnd = false;
@@ -16,6 +17,8 @@ public class MainRound implements Round {
 
     @Override
     public void startRound() {
+        Program program = new Program();
+
 
         System.out.println("------------------------------");
         System.out.println("Starting round number: " + roundNumber);
@@ -33,7 +36,6 @@ public class MainRound implements Round {
 
                     if (decision.equals("Y")) {
                         roundEnd = true;
-                        Program program = new Program();
                         program.beginGame();
                     } else if (decision.equals("N")) {
                         continue;
@@ -47,7 +49,7 @@ public class MainRound implements Round {
                     String decision = roundScanner.nextLine().toUpperCase();
                     if (decision.equals("Y")) {
                         roundEnd = true;
-                        Program.endGame();
+                        program.endGame();
                     } else if (decision.equals("N")) {
                         continue;
                     } else {
@@ -59,14 +61,14 @@ public class MainRound implements Round {
                     System.out.println("------------------------------");
                     System.out.println("You chose Rock");
                     playerOneFigure = new Rock();
-                    playerTwoFigure = Program.generateUnfairOpponentMove(playerOneFigure);
+                    playerTwoFigure = program.generateUnfairOpponentMove(playerOneFigure);
                     System.out.println("Opponent chose " + playerTwoFigure);
-                    int compareResult = Program.compareFigures(playerOneFigure, playerTwoFigure);
+                    int compareResult = program.compareFigures(playerOneFigure, playerTwoFigure);
 
                     CheckRoundEnd(compareResult);
 
-                    System.out.println("Player one points: " + Program.playerOnePoints);
-                    System.out.println("Player two points: " + Program.playerTwoPoints);
+                    System.out.println("Player one points: " + program.playerOnePoints);
+                    System.out.println("Player two points: " + program.playerTwoPoints);
 
                     roundEnd = true;
                     break;
@@ -75,14 +77,14 @@ public class MainRound implements Round {
                     System.out.println("------------------------------");
                     System.out.println("You chose Paper");
                     playerOneFigure = new Paper();
-                    playerTwoFigure = Program.generateClassicOpponentMove();
+                    playerTwoFigure = program.generateClassicOpponentMove();
                     System.out.println("Opponent chose " + playerTwoFigure);
-                    int compareResult = Program.compareFigures(playerOneFigure, playerTwoFigure);
+                    int compareResult = program.compareFigures(playerOneFigure, playerTwoFigure);
 
                     CheckRoundEnd(compareResult);
 
-                    System.out.println("Player one points: " + Program.playerOnePoints);
-                    System.out.println("Player two points: " + Program.playerTwoPoints);
+                    System.out.println("Player one points: " + program.playerOnePoints);
+                    System.out.println("Player two points: " + program.playerTwoPoints);
 
                     roundEnd = true;
                     break;
@@ -91,14 +93,14 @@ public class MainRound implements Round {
                     System.out.println("------------------------------");
                     System.out.println("You chose Scissors");
                     playerOneFigure = new Scissors();
-                    playerTwoFigure = Program.generateClassicOpponentMove();
+                    playerTwoFigure = program.generateClassicOpponentMove();
                     System.out.println("Opponent chose " + playerTwoFigure);
-                    int compareResult = Program.compareFigures(playerOneFigure, playerTwoFigure);
+                    int compareResult = program.compareFigures(playerOneFigure, playerTwoFigure);
 
                     CheckRoundEnd(compareResult);
 
-                    System.out.println("Player one points: " + Program.playerOnePoints);
-                    System.out.println("Player two points: " + Program.playerTwoPoints);
+                    System.out.println("Player one points: " + program.playerOnePoints);
+                    System.out.println("Player two points: " + program.playerTwoPoints);
 
                     roundEnd = true;
                     break;
@@ -107,14 +109,14 @@ public class MainRound implements Round {
                     System.out.println("------------------------------");
                     System.out.println("You chose Lizard");
                     playerOneFigure = new Lizard();
-                    playerTwoFigure = Program.generateClassicOpponentMove();
+                    playerTwoFigure = program.generateClassicOpponentMove();
                     System.out.println("Opponent chose " + playerTwoFigure);
-                    int compareResult = Program.compareFigures(playerOneFigure, playerTwoFigure);
+                    int compareResult = program.compareFigures(playerOneFigure, playerTwoFigure);
 
                     CheckRoundEnd(compareResult);
 
-                    System.out.println("Player one points: " + Program.playerOnePoints);
-                    System.out.println("Player two points: " + Program.playerTwoPoints);
+                    System.out.println("Player one points: " + program.playerOnePoints);
+                    System.out.println("Player two points: " + program.playerTwoPoints);
 
                     roundEnd = true;
                     break;
@@ -123,14 +125,14 @@ public class MainRound implements Round {
                     System.out.println("------------------------------");
                     System.out.println("You chose Spock");
                     playerOneFigure = new Spock();
-                    playerTwoFigure = Program.generateClassicOpponentMove();
+                    playerTwoFigure = program.generateClassicOpponentMove();
                     System.out.println("Opponent chose " + playerTwoFigure);
-                    int compareResult = Program.compareFigures(playerOneFigure, playerTwoFigure);
+                    int compareResult = program.compareFigures(playerOneFigure, playerTwoFigure);
 
                     CheckRoundEnd(compareResult);
 
-                    System.out.println("Player one points: " + Program.playerOnePoints);
-                    System.out.println("Player two points: " + Program.playerTwoPoints);
+                    System.out.println("Player one points: " + program.playerOnePoints);
+                    System.out.println("Player two points: " + program.playerTwoPoints);
 
                     roundEnd = true;
                     break;
@@ -141,6 +143,7 @@ public class MainRound implements Round {
 
     @Override
     public void CheckRoundEnd(int compareResult) {
-        Program.afterRound(compareResult);
+        Program program = new Program();
+        program.afterRound(compareResult);
     }
 }

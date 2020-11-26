@@ -9,19 +9,19 @@ import java.util.Random;
 
 public class Program {
 
-    public static int playerOnePoints = 0;
-    public static int playerTwoPoints = 0;
-    static String playerName;
-    static int numberOfRoundsToPlay;
-    private final ArrayList<Round> rounds = new ArrayList<>();
-    private int currentRoundNumber = 1;
+    final ArrayList<Round> rounds = new ArrayList<>();
+    public int playerOnePoints = 0;
+    public int playerTwoPoints = 0;
+    String playerName;
+    int numberOfRoundsToPlay;
+    int currentRoundNumber = 1;
 
-    public static void endGame() {
+    public void endGame() {
         System.out.println("Quitting...Goodbye!😁");
         System.exit(0);
     }
 
-    public static int compareFigures(Shape shape, Shape shape2) {
+    public int compareFigures(Shape shape, Shape shape2) {
         int result = 0;
 
         if (shape.getWinsWith().contains(shape2.getName())) {
@@ -36,7 +36,7 @@ public class Program {
         return result;
     }
 
-    public static Shape generateClassicOpponentMove() {
+    public Shape generateClassicOpponentMove() {
         Random random = new Random();
         Shape returnShape = null;
         int randomNumber = random.nextInt(3) + 1;
@@ -59,7 +59,7 @@ public class Program {
         return returnShape;
     }
 
-    public static Shape generateUnfairOpponentMove(Shape chosenFigure) {
+    public Shape generateUnfairOpponentMove(Shape chosenFigure) {
         Random random = new Random();
         Shape returnFigure = null;
 
@@ -203,13 +203,14 @@ public class Program {
 
     }
 
-    public static void afterRound(int compareResult) {
+    public void afterRound(int compareResult) {
+        Program program = new Program();
 
         switch (compareResult) {
 
             case 1: {
                 System.out.println("You won this round!");
-                Program.playerOnePoints += 1;
+                program.playerOnePoints += 1;
                 break;
             }
             case 0: {
@@ -218,19 +219,20 @@ public class Program {
             }
             case -1: {
                 System.out.println("You lost...pathetic");
-                Program.playerTwoPoints += 1;
+                program.playerTwoPoints += 1;
                 break;
             }
         }
     }
 
     public void beginGame() {
+        Narrator narrator = new Narrator();
 
         playerOnePoints = 0;
         playerTwoPoints = 0;
-        playerName = Narrator.getUserName();
-        int gameMode = Narrator.getGameMode();
-        numberOfRoundsToPlay = Narrator.getNumberOfRounds();
+        playerName = narrator.getUserName();
+        int gameMode = narrator.getGameMode();
+        numberOfRoundsToPlay = narrator.getNumberOfRounds();
 
 
         //TODO Tutaj bedą jeszcze tryby
@@ -240,18 +242,18 @@ public class Program {
                 for (int index = 1; index <= numberOfRoundsToPlay; index++) {
                     rounds.add(new MainRound(index));
                 }
-                Narrator.showInstructionsMain();
+                narrator.showInstructionsMain();
                 break;
             }
         }
 
-        Narrator.showGameInfo();
+        narrator.showGameInfo();
 
         while (currentRoundNumber <= numberOfRoundsToPlay) {
             rounds.get(currentRoundNumber - 1).startRound();
             currentRoundNumber++;
         }
 
-        Narrator.showResults();
+        narrator.showResults();
     }
 }

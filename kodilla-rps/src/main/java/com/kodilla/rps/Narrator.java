@@ -4,7 +4,8 @@ import java.util.Scanner;
 
 public class Narrator {
 
-    public static int getGameMode() {
+    public int getGameMode() {
+
         Scanner scanner = new Scanner(System.in);
         System.out.println("What game mode do you want to play?");
         int choice = 0;
@@ -24,7 +25,7 @@ public class Narrator {
         }
     }
 
-    public static String getUserName() {
+    public String getUserName() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Welcome to Rock-Paper-Scissors");
         String scannerResult = "";
@@ -39,7 +40,8 @@ public class Narrator {
         }
     }
 
-    public static int getNumberOfRounds() {
+    public int getNumberOfRounds() {
+
         Scanner scanner = new Scanner(System.in);
         while (true) {
             System.out.println("How many rounds do you want to play?");
@@ -52,7 +54,7 @@ public class Narrator {
         }
     }
 
-    public static void showInstructionsMain() {
+    public void showInstructionsMain() {
 
         System.out.println("------------------------------");
         System.out.println("Instructions: ");
@@ -66,24 +68,25 @@ public class Narrator {
         System.out.println("------------------------------");
     }
 
-    public static void showResults() {
+    public void showResults() {
+        Program program = new Program();
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("------------------------------");
         System.out.println("End of the game.");
         System.out.println("Results: ");
-        System.out.println(Program.playerName + " got " + Program.playerOnePoints + " points.");
-        System.out.println("Player two got " + Program.playerTwoPoints + " points.");
+        System.out.println(program.playerName + " got " + program.playerOnePoints + " points.");
+        System.out.println("Player two got " + program.playerTwoPoints + " points.");
 
-        if (Program.playerOnePoints > Program.playerTwoPoints) {
-            System.out.println(Program.playerName + " won the game!");
+        if (program.playerOnePoints > program.playerTwoPoints) {
+            System.out.println(program.playerName + " won the game!");
         }
 
-        if (Program.playerOnePoints < Program.playerTwoPoints) {
+        if (program.playerOnePoints < program.playerTwoPoints) {
             System.out.println("Player two won the game!");
         }
 
-        if (Program.playerOnePoints == Program.playerTwoPoints) {
+        if (program.playerOnePoints == program.playerTwoPoints) {
             System.out.println("The game ended with a draw!");
         }
 
@@ -93,15 +96,15 @@ public class Narrator {
 
         if (scannerResult.toUpperCase().equals("Y")) {
             System.out.println("Starting new game...");
-            Program program = new Program();
             program.beginGame();
         } else if (scannerResult.toUpperCase().equals("N")) {
-            Program.endGame();
+            program.endGame();
         }
     }
 
-    public static void showGameInfo() {
-        System.out.println("Name: " + Program.playerName);
-        System.out.println("Number of rounds you want to play: " + Program.numberOfRoundsToPlay);
+    public void showGameInfo() {
+        Program program = new Program();
+        System.out.println("Name: " + program.playerName);
+        System.out.println("Number of rounds you want to play: " + program.numberOfRoundsToPlay);
     }
 }
