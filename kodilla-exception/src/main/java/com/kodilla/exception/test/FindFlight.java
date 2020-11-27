@@ -26,12 +26,12 @@ public class FindFlight {
             return;
         }
 
-        List<String> flightStream = flightMap.entrySet().stream()
+        List<String> flights = flightMap.entrySet().stream()
                 .filter(Map.Entry::getValue)
                 .map(Map.Entry::getKey)
                 .collect(toList());
 
-        if (flightStream.contains(flight.getDepartureAirport()) && flightStream.contains(flight.getArrivalAirport())) {
+        if (flights.contains(flight.getDepartureAirport()) && flights.contains(flight.getArrivalAirport())) {
 
             System.out.println("You are flying from " + flight.getDepartureAirport() + " to " + flight.getArrivalAirport());
 
