@@ -5,21 +5,25 @@ import java.util.List;
 
 public class Scissors implements Shape {
 
-    @Override
-    public final List<Shape> getWinsWith() {
-        List<Shape> scissorsWinWith = new ArrayList<>();
-        scissorsWinWith.add(new Paper());
-        scissorsWinWith.add(new Lizard());
-        return scissorsWinWith;
+    private static final List<Shape> LOSING_SHAPES = new ArrayList<>();
+
+    static {
+        LOSING_SHAPES.add(new Paper());
+        LOSING_SHAPES.add(new Lizard());
     }
 
     @Override
-    public final String toString() {
+    public final List<Shape> getWinsWith() {
+        return new ArrayList<>(LOSING_SHAPES);
+    }
+
+    @Override
+    public String toString() {
         return "SCISSORS";
     }
 
     @Override
-    public final boolean equals(Object obj) {
+    public boolean equals(Object obj) {
         return obj.getClass().equals(getClass());
     }
 }

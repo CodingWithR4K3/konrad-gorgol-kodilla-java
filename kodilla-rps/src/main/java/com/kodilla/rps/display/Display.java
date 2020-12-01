@@ -2,7 +2,7 @@ package com.kodilla.rps.display;
 
 public class Display {
 
-    public final void displaySingleMatchResult(int singleResult) {
+    public void displaySingleMatchResult(int singleResult) {
         if (singleResult == 0) {
             System.out.println("-------------------------");
             System.out.println("It's a TIE!");
@@ -18,7 +18,7 @@ public class Display {
         }
     }
 
-    public final void displayFinalResult(int playerResult, int computerResult) {
+    public void displayFinalResult(int playerResult, int computerResult) {
         if (playerResult > computerResult) {
             System.out.println("-------------------------");
             System.out.println("\nYou've vanquished your enemy!\n");

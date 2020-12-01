@@ -19,12 +19,12 @@ public class Lizard implements Shape {
     }
 
     @Override
-    public final String toString() {
+    public String toString() {
         return "LIZARD";
     }
 
     @Override
-    public final boolean equals(Object obj) {
+    public boolean equals(Object obj) {
         return obj.getClass().equals(getClass());
     }
 }
