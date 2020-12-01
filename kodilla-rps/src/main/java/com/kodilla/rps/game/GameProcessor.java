@@ -8,74 +8,77 @@ import java.util.Scanner;
 
 public class GameProcessor {
 
-    public final Shapes getChoice(int number) {
-        Shapes shape;
+    public Shape getChoice(int number) {
 
-        if (number == 1) {
-            shape = new Rock();
-        } else if (number == 2) {
-            shape = new Paper();
-        } else if (number == 3) {
-            shape = new Scissors();
-        } else if (number == 4) {
-            shape = new Lizard();
-        } else {
-            shape = new Spock();
+        switch (number) {
+            case 1:
+                return new Rock();
+            case 2:
+                return new Paper();
+            case 3:
+                return new Scissors();
+            case 4:
+                return new Lizard();
+            case 5:
+                return new Spock();
+            default:
+                throw new InputMismatchException();
         }
-        return shape;
     }
 
-    public final int getSingleMatchResult(Shapes playersOneShapes, Shapes computersShapes) {
-        if (playersOneShapes.equals(computersShapes)) {
+
+    public int getSingleMatchResult(Shape playersOneShape, Shape computersShape) {
+        if (playersOneShape.equals(computersShape)) {
             return 0;
-        } else if (playersOneShapes.getWinsWith().contains(computersShapes)) {
+        } else if (playersOneShape.getWinsWith().contains(computersShape)) {
             return 1;
         } else {
             return 2;
         }
     }
 
-    public final Shapes getPlayerChoice(Scanner scanner, String player) {
+    public Shape getPlayerChoice(Scanner scanner, String player) {
         System.out.println("Your move:");
         boolean exceptionOccurred = true;
-        Shapes playersShapes = getChoice(0);
+        Shape playersShape = getChoice(5);
         while (exceptionOccurred) {
             try {
-                playersShapes = getChoice(scanner.nextInt());
-                System.out.println(player + " choose: " + playersShapes);
+                playersShape = getChoice(scanner.nextInt());
+                System.out.println(player + " choose: " + playersShape);
                 exceptionOccurred = false;
             } catch (InputMismatchException e) {
-                System.out.println("Try choosing numbers between 1-5");
-                scanner.next();
+                showError(scanner, "Try choosing numbers between 1-5");
             }
         }
-        return playersShapes;
+        return playersShape;
     }
 
-    public final Shapes getComputerChoice(Computer playerTwo) {
-        Shapes computersChoice = getChoice(playerTwo.random());
+    public Shape getComputerChoice(Computer playerTwo) {
+        Shape computersChoice = getChoice(playerTwo.random());
         System.out.println(playerTwo + " choose: " + computersChoice);
         return computersChoice;
     }
 
-    public final int getNumberOfRounds(Scanner scanner, String player) {
+    public int getNumberOfRounds(Scanner scanner, String player) {
         System.out.println("Hey! " + player + ", how many rounds you want to play?");
         int howManyRounds = 0;
         boolean exceptionOccurred = true;
         while (exceptionOccurred) {
             try {
                 howManyRounds = scanner.nextInt();
+                if (howManyRounds <= 0) {
+                    showError(scanner, "You can use only numbers staring from 0");
+                }
                 exceptionOccurred = false;
                 System.out.println("Let the game begin!");
             } catch (InputMismatchException e) {
-                System.out.println("Try with numbers this time!");
-                scanner.next();
+                showError(scanner, "You can use only numbers staring from 0");
             }
         }
         return howManyRounds;
     }
 
-    public final String getPlayerOneName(Scanner scanner) {
+    public String getPlayerOneName(Scanner scanner) {
 
         String playerOneName;
         while (true) {
@@ -88,5 +91,10 @@ public class GameProcessor {
                 return playerOneName;
             }
         }
+    }
+
+    private void showError(Scanner scanner, String errorMessage) {
+        System.out.println(errorMessage);
+        scanner.nextLine();
     }
 }

@@ -3,33 +3,33 @@ package com.kodilla.rps.game;
 import com.kodilla.rps.display.Display;
 import com.kodilla.rps.players.Computer;
 import com.kodilla.rps.players.Player;
-import com.kodilla.rps.shapes.Shapes;
+import com.kodilla.rps.shapes.Shape;
 
 import java.util.Scanner;
 
 public class GameEngine {
 
-    public final Computer playerTwo = new Computer(new Player("Computer"));
-    public String playerOne;
-    Scanner scanner = new Scanner(System.in);
-    GameNarrator narrator = new GameNarrator();
-    GameProcessor processor = new GameProcessor();
-    Display display = new Display();
+    private final Computer playerTwo = new Computer(new Player("Computer"));
+    private final Scanner scanner = new Scanner(System.in);
+    private final GameNarrator narrator = new GameNarrator();
+    private final GameProcessor processor = new GameProcessor();
+    private final Display display = new Display();
+
     private boolean end = false;
     private int playerResult = 0;
     private int computerResult = 0;
 
-    public final void play() {
+    public void play() {
         narrator.printStartScreen();
-        playerOne = processor.getPlayerOneName(scanner);
+        String playerOne = processor.getPlayerOneName(scanner);
         narrator.printRulesScreen();
         narrator.printLaunchMenu();
 
         while (!end) {
             int howManyRounds = processor.getNumberOfRounds(scanner, playerOne);
             for (int round = 0; round < howManyRounds; round++) {
-                Shapes playerOneChoice = processor.getPlayerChoice(scanner, playerOne);
-                Shapes playerTwoChoice = processor.getComputerChoice(playerTwo);
+                Shape playerOneChoice = processor.getPlayerChoice(scanner, playerOne);
+                Shape playerTwoChoice = processor.getComputerChoice(playerTwo);
                 int singleMatchResult = processor.getSingleMatchResult(playerOneChoice, playerTwoChoice);
 
                 switch (singleMatchResult) {

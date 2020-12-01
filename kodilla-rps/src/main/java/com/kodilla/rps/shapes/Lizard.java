@@ -4,14 +4,18 @@ package com.kodilla.rps.shapes;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Lizard implements Shapes {
+public class Lizard implements Shape {
+
+    private static final List<Shape> LOSING_SHAPES = new ArrayList<>();
+
+    static {
+        LOSING_SHAPES.add(new Spock());
+        LOSING_SHAPES.add(new Paper());
+    }
 
     @Override
-    public final List<Shapes> getWinsWith() {
-        List<Shapes> lizardWinsWith = new ArrayList<>();
-        lizardWinsWith.add(new Spock());
-        lizardWinsWith.add(new Paper());
-        return lizardWinsWith;
+    public final List<Shape> getWinsWith() {
+        return new ArrayList<>(LOSING_SHAPES);
     }
 
     @Override
@@ -21,6 +25,6 @@ public class Lizard implements Shapes {
 
     @Override
     public final boolean equals(Object obj) {
-        return obj instanceof Lizard;
+        return obj.getClass().equals(getClass());
     }
 }

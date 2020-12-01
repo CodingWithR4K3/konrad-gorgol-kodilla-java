@@ -9,7 +9,7 @@ public class Player {
     }
 
     @Override
-    public final String toString() {
+    public String toString() {
         return "" + playerName;
     }
 }

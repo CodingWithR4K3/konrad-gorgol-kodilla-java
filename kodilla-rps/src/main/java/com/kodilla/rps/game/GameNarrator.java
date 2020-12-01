@@ -2,14 +2,14 @@ package com.kodilla.rps.game;
 
 public class GameNarrator {
 
-    private final String HEADER = "\n--------ROCK, PAPER, SCISSORS, LIZARD, SPOCK--------\n";
+    private static final String HEADER = "\n--------ROCK, PAPER, SCISSORS, LIZARD, SPOCK--------\n";
 
-    public final void printStartScreen() {
+    public void printStartScreen() {
         System.out.println(HEADER);
         System.out.println("Please enter your name: ");
     }
 
-    public final void printRulesScreen() {
+    public void printRulesScreen() {
         System.out.println("SCISSORS cuts PAPER");
         System.out.println("PAPER covers ROCK");
         System.out.println("ROCK crushes LIZARD");
@@ -22,7 +22,7 @@ public class GameNarrator {
         System.out.println("ROCK crushes SCISSORS");
     }
 
-    public final void printLaunchMenu() {
+    public void printLaunchMenu() {
 
         System.out.println();
         System.out.println(HEADER);
@@ -37,12 +37,12 @@ public class GameNarrator {
         System.out.println();
     }
 
-    public final void printEndScreen() {
+    public void printEndScreen() {
         System.out.println("If u want to play another game PRESS ---> n <---");
         System.out.println("If you want to quit PRESS ---> x <---");
     }
 
-    public final void printScore(int score1, int score2) {
+    public void printScore(int score1, int score2) {
         System.out.println(score1 + " : " + score2);
     }
 }

@@ -3,11 +3,11 @@ package com.kodilla.rps.shapes;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Scissors implements Shapes {
+public class Scissors implements Shape {
 
     @Override
-    public final List<Shapes> getWinsWith() {
-        List<Shapes> scissorsWinWith = new ArrayList<>();
+    public final List<Shape> getWinsWith() {
+        List<Shape> scissorsWinWith = new ArrayList<>();
         scissorsWinWith.add(new Paper());
         scissorsWinWith.add(new Lizard());
         return scissorsWinWith;
@@ -20,6 +20,6 @@ public class Scissors implements Shapes {
 
     @Override
     public final boolean equals(Object obj) {
-        return obj instanceof Scissors;
+        return obj.getClass().equals(getClass());
     }
 }
