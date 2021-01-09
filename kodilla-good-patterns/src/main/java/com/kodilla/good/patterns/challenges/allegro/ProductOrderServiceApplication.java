@@ -20,10 +20,10 @@ public class ProductOrderServiceApplication {
         OrderProcessor processor = new OrderProcessor(new ProductOrderService(), productOrderRepository, new MailInformationService());
 
         OrderDto orderDto1 = processor.process(orderRequest1);
-        System.out.println("Did user " + orderDto1.getUser().getNickname() + " just ordered " + orderDto1.getProduct().getProductName() + "? " + orderDto1.isProductOrdered());
+        System.out.println("Has user " + orderDto1.getUser().getNickname() + " just ordered " + orderDto1.getProduct().getProductName() + "? " + orderDto1.isProductOrdered());
 
         OrderDto orderDto2 = processor.process(orderRequest2);
-        System.out.println("Did user " + orderDto2.getUser().getNickname() + " just ordered " + orderDto2.getProduct().getProductName() + "? " + orderDto2.isProductOrdered());
+        System.out.println("Has user " + orderDto2.getUser().getNickname() + " just ordered " + orderDto2.getProduct().getProductName() + "? " + orderDto2.isProductOrdered());
 
         productOrderRepository.showOrder();
 
