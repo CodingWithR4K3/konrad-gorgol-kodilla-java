@@ -1,6 +1,6 @@
 package com.kodilla.good.patterns.challenges.flightcompany.search;
 
-import com.kodilla.good.patterns.challenges.flightcompany.repository.FlightImp;
+import com.kodilla.good.patterns.challenges.flightcompany.repository.Flight;
 import com.kodilla.good.patterns.challenges.flightcompany.repository.FlightRepository;
 
 import java.util.Set;
@@ -14,23 +14,23 @@ public class SearchEngine {
         this.flightsRepository = flightsRepository;
     }
 
-    public Set<FlightImp> searchAllFromDestination(String fromDestination) {
+    public Set<Flight> searchAllFromDestination(String fromDestination) {
 
         return flightsRepository.getFlights().stream()
                 .filter(f -> f.getFromDestination().equals(fromDestination))
                 .collect(Collectors.toSet());
     }
 
-    public Set<FlightImp> searchAllToDestination(String toDestination) {
+    public Set<Flight> searchAllToDestination(String toDestination) {
 
         return flightsRepository.getFlights().stream()
                 .filter(f -> f.getToDestination().equals(toDestination))
                 .collect(Collectors.toSet());
     }
 
-    public Set<FlightImp> searchFromToViaDestination(String fromDestination, String toDestination, String viaDestination) {
+    public Set<Flight> searchFromToViaDestination(String fromDestination, String toDestination, String viaDestination) {
 
-        Set<FlightImp> searchResult = flightsRepository.getFlights().stream()
+        Set<Flight> searchResult = flightsRepository.getFlights().stream()
                 .filter(f -> (f.getFromDestination().equals(fromDestination) && f.getToDestination().equals(viaDestination)) || (f.getFromDestination().equals(viaDestination) && f.getToDestination().equals(toDestination)))
                 .collect(Collectors.toSet());
 
