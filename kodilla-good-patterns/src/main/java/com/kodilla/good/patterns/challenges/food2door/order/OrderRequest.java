@@ -1,19 +1,17 @@
 package com.kodilla.good.patterns.challenges.food2door.order;
 
-import com.kodilla.good.patterns.challenges.food2door.products.Product;
-
 public final class OrderRequest {
 
-    private final Product product;
+    private final int productId;
     private final int quantity;
 
-    public OrderRequest(Product product, int quantity) {
-        this.product = product;
+    public OrderRequest(int productId, int quantity) {
+        this.productId = productId;
         this.quantity = quantity;
     }
 
-    public Product getProduct() {
-        return product;
+    public int getProductId() {
+        return productId;
     }
 
     public int getQuantity() {

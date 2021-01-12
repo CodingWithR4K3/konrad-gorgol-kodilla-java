@@ -11,6 +11,6 @@ public class ProcessOrderDto {
     }
 
     public void showOrderStatus() {
-        System.out.println("Is product: " + orderRequest.getProduct().getProductName() + " ordered? " + ifOrdered);
+        System.out.println("Is product: " + orderRequest.getProductId() + " ordered? " + ifOrdered);
     }
 }

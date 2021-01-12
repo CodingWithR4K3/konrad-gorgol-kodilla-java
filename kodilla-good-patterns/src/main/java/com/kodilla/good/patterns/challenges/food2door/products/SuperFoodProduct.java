@@ -6,15 +6,23 @@ public class SuperFoodProduct implements Product {
     private final String productName;
     private final double productPrice;
     private final boolean isGlutenFree;
+    private final int productId;
 
-    public SuperFoodProduct(String productName, double productPrice, boolean isGlutenFree) {
+
+    public SuperFoodProduct(int productId, String productName, double productPrice, boolean isGlutenFree) {
         this.productName = productName;
         this.productPrice = productPrice;
         this.isGlutenFree = isGlutenFree;
+        this.productId = productId;
     }
 
     public String getProductName() {
         return productName;
+    }
+
+    @Override
+    public Integer productId() {
+        return productId;
     }
 
 

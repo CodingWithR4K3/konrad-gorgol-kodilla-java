@@ -13,9 +13,9 @@ public class OrderProcessor {
 
     public ProcessOrderDto processOrder(OrderRequest orderRequest) {
 
-        Manufacturer manufacturer = productRepository.getProductDeliverer(orderRequest.getProduct());
+        Manufacturer manufacturer = productRepository.getProductDeliverer(orderRequest.getProductId());
 
-        boolean ifOrdered = manufacturer.process(orderRequest.getProduct(), orderRequest.getQuantity());
+        boolean ifOrdered = manufacturer.process(productRepository.getProductFromRepository(orderRequest.getProductId()), orderRequest.getQuantity());
         return new ProcessOrderDto(orderRequest, ifOrdered);
     }
 }
