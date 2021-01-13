@@ -88,6 +88,7 @@ class ForumTestSuite {
             Assertions.assertFalse(result);
         }
     }
+
     @Nested
     @DisplayName("Tests for comments")
     class TestComments {

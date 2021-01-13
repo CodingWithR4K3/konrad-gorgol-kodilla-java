@@ -1,6 +1,6 @@
 package com.kodilla.testing.forum;
-import com.kodilla.testing.user.SimpleUser;
 
+import com.kodilla.testing.user.SimpleUser;
 import org.junit.jupiter.api.*;
 
 class ForumTestSuite {

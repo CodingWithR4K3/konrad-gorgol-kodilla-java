@@ -1,6 +1,7 @@
 package com.kodilla.testing.collection;
 
 import org.junit.jupiter.api.*;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -43,8 +44,8 @@ public class CollectionTestSuite {
     @Test
     public void testOddNumbersExterminatorNormalList() {
         //Given
-        ArrayList<Integer> normalList = new ArrayList<>(Arrays.asList(15,22,5,3,17,32,7,68));
-        ArrayList<Integer> oddList = new ArrayList<>(Arrays.asList(22,32,68));
+        ArrayList<Integer> normalList = new ArrayList<>(Arrays.asList(15, 22, 5, 3, 17, 32, 7, 68));
+        ArrayList<Integer> oddList = new ArrayList<>(Arrays.asList(22, 32, 68));
         //When
         ArrayList<Integer> numberList = OddNumbersExterminator.exterminate(normalList);
         System.out.println("Testing Exterminator" + numberList);

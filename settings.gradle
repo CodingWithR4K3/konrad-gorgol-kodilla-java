@@ -1,11 +1,8 @@
-rootProject.name = 'kodilla-course'
 include 'kodilla-testing'
-include 'untitled'
-include 'kodilla-testing:kodilla-stream'
-findProject(':kodilla-testing:kodilla-stream')?.name = 'kodilla-stream'
 include 'kodilla-stream'
 include 'kodilla-exception'
 include 'kodilla-rps'
 include 'kodilla-good-patterns'
 include 'kodilla-spring-intro'
+include 'kodilla-spring'
 

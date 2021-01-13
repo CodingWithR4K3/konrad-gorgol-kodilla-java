@@ -2,8 +2,8 @@ package com.kodilla.testing.forum;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
-
 import java.util.List;
+
 public class ForumUser {
 
     private final String name;

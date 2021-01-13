@@ -1,6 +1,7 @@
 package com.kodilla.testing.shape;
 
 import org.junit.jupiter.api.*;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -30,48 +31,48 @@ public class ShapeCollectorTestSuite {
     @Nested
     @DisplayName("Tests for adding and removing figure")
     class AddAndRemove {
-    @Test
-    public void testAddFigure() {
-        //Given
+        @Test
+        public void testAddFigure() {
+            //Given
 
-        ShapeCollector testList = new ShapeCollector(new ArrayList<>(Arrays.asList(
-                new Triangle(15, 20),
-                new Square(14))));
-        ShapeCollector expectedList = new ShapeCollector(new ArrayList<>(Arrays.asList(
-                new Circle(26),
-                new Triangle(15, 20),
-                new Square(14))));
-        int expectedListSize = expectedList.getShapeList().size();
-        //When
+            ShapeCollector testList = new ShapeCollector(new ArrayList<>(Arrays.asList(
+                    new Triangle(15, 20),
+                    new Square(14))));
+            ShapeCollector expectedList = new ShapeCollector(new ArrayList<>(Arrays.asList(
+                    new Circle(26),
+                    new Triangle(15, 20),
+                    new Square(14))));
+            int expectedListSize = expectedList.getShapeList().size();
+            //When
 
-        testList.addFigure(new Circle(26));
-        int actualListSize = testList.getShapeList().size();
+            testList.addFigure(new Circle(26));
+            int actualListSize = testList.getShapeList().size();
 
-        //Then
+            //Then
 
-        Assertions.assertEquals(expectedListSize, actualListSize);
-    }
+            Assertions.assertEquals(expectedListSize, actualListSize);
+        }
 
-    @Test
-    public void testRemoveFigure() {
-        //Given
+        @Test
+        public void testRemoveFigure() {
+            //Given
 
-        Circle circle = new Circle(26);
-        Triangle triangle = new Triangle(15, 20);
-        Square square = new Square(14);
+            Circle circle = new Circle(26);
+            Triangle triangle = new Triangle(15, 20);
+            Square square = new Square(14);
 
-        ShapeCollector testList = new ShapeCollector(new ArrayList<Shape>(Arrays.asList(
-                circle, triangle, square)));
-        ShapeCollector expectedList = new ShapeCollector(new ArrayList<Shape>(Arrays.asList(triangle, square)));
+            ShapeCollector testList = new ShapeCollector(new ArrayList<>(Arrays.asList(
+                    circle, triangle, square)));
+            ShapeCollector expectedList = new ShapeCollector(new ArrayList<>(Arrays.asList(triangle, square)));
 
-        int expectedListSize = expectedList.getShapeList().size();
-        //When
-        testList.removeFigure(circle);
-        int actualListSize = testList.getShapeList().size();
+            int expectedListSize = expectedList.getShapeList().size();
+            //When
+            testList.removeFigure(circle);
+            int actualListSize = testList.getShapeList().size();
 
-        //Then
-        Assertions.assertEquals(expectedListSize, actualListSize);
-    }
+            //Then
+            Assertions.assertEquals(expectedListSize, actualListSize);
+        }
     }
 
     @Nested
@@ -85,7 +86,7 @@ public class ShapeCollectorTestSuite {
             Triangle triangle = new Triangle(15, 20);
             Square square = new Square(14);
 
-            ShapeCollector testList = new ShapeCollector(new ArrayList<Shape>(Arrays.asList(
+            ShapeCollector testList = new ShapeCollector(new ArrayList<>(Arrays.asList(
                     circle, triangle, square)));
 
             //When
@@ -97,7 +98,7 @@ public class ShapeCollectorTestSuite {
             //Then
             Assertions.assertEquals(triangle, shape1);
             Assertions.assertEquals(square, shape2);
-            Assertions.assertEquals(null, shape3);
+            Assertions.assertNull(shape3);
         }
 
         @Test
@@ -106,7 +107,7 @@ public class ShapeCollectorTestSuite {
             Circle circle = new Circle(26);
             Triangle triangle = new Triangle(15, 20);
             Square square = new Square(14);
-            ArrayList<Shape> testList = new ArrayList<Shape>(Arrays.asList(
+            ArrayList<Shape> testList = new ArrayList<>(Arrays.asList(
                     circle, triangle, square));
             ShapeCollector shapesCollection = new ShapeCollector(testList);
 

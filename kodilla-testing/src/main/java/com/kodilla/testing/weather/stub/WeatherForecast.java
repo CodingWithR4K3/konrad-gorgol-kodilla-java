@@ -30,6 +30,7 @@ public class WeatherForecast {
         }
         return resultOfAverage / temperatureMap.size();
     }
+
     public double calculateMedianOfTemperature(Map<String, Double> temperatureMap) {
 
         List<Double> listOfTemp = new ArrayList<>();
