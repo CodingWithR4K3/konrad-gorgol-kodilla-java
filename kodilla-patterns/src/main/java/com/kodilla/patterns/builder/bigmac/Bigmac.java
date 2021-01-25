@@ -13,7 +13,7 @@ public class Bigmac {
     private final Sauce sauce;
     private final List<Ingredient> ingredients;
 
-    public Bigmac(final Bun bun, final int burgers, final Sauce sauce, final List<Ingredient> ingredients) {
+    private Bigmac(Bun bun, int burgers, Sauce sauce, List<Ingredient> ingredients) {
         this.bun = bun;
         this.burgers = burgers;
         this.sauce = sauce;
