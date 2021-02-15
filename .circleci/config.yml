@@ -29,7 +29,7 @@ jobs:
     steps:
       - checkout
   #install mysql client
-      - run: sudo apt-get install mysql-client
+      - run: sudo apt-get install mysql
       # create databases
       - run: mysql -h 127.0.0.1 -u root -e "create database kodilla_course"
       # Download and cache dependencies
