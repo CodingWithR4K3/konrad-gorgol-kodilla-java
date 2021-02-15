@@ -29,6 +29,10 @@ jobs:
       - checkout
   #install mysql client
 
+      - run:
+          name: Wait for Database Connection
+          # preinstalled in circleci/* docker image
+          command: dockerize -wait tcp://localhost:3306 -timeout 1m
       - run:  sudo apt-get update
       - run: sudo apt-get install mysql-client
       # create databases
