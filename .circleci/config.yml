@@ -20,9 +20,9 @@ jobs:
       JVM_OPTS: -Xmx3200m
       TERM: dumb
 
-      -image: circleci/mysql:8.0.3
+      -image: circleci/mysql:5.7
       environment:
-      MYSQL_ALLOW_EMPTY_PASSWORD: yes
+      MYSQL_ALLOW_EMPTY_PASSWORD: 1
       MYSQL_ROOT_PASSWORD: ''
 
     working_directory: ~/repo
