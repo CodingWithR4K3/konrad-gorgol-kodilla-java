@@ -17,13 +17,26 @@ jobs:
     working_directory: ~/repo
 
     environment:
+      DB_ROOT_USER: root
+      DB_URL: jdbc:mysql://localhost:3306/kodilla_course
+      DB_DRIVER: com.mysql.cj.jdbc.Driver
+      DB_PASS: ""
+
       # Customize the JVM maximum heap limit
       JVM_OPTS: -Xmx3200m
       TERM: dumb
 
+    - image: circleci/mysql:8.0.3
+      environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: yes
+      MYSQL_ROOT_PASSWORD: ''
+
+
     steps:
       - checkout
-
+      - run
+      # create databases
+      - run: mysql -h 127.0.0.1 -u root -e "create database kodilla_course"
       # Download and cache dependencies
       - restore_cache:
           keys:
