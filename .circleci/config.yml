@@ -36,7 +36,7 @@ jobs:
       - run:  sudo apt-get update
       - run: sudo apt-get install mysql-client
       # create databases
-      - run: mysql --host="127.0.0.1" --user="root" --password="root"
+      - run: mysql --host="localhost:3306" --user="root" --password="root"
       # Download and cache dependencies
       - restore_cache:
           keys:
