@@ -1,7 +1,3 @@
-# Java Gradle CircleCI 2.0 configuration file
-#
-# Check https://circleci.com/docs/2.0/language-java/ for more details
-#
 version: 2
 jobs:
   build:
@@ -26,7 +22,7 @@ jobs:
       JVM_OPTS: -Xmx3200m
       TERM: dumb
 
-    - image: circleci/mysql:8.0.3
+      -image: circleci/mysql:8.0.3
       environment:
       MYSQL_ALLOW_EMPTY_PASSWORD: yes
       MYSQL_ROOT_PASSWORD: ''
@@ -34,7 +30,12 @@ jobs:
 
     steps:
       - checkout
-      - run
+      - run:
+          name: Wait for Database Connection
+          # preinstalled in circleci/* docker image
+          command: dockerize -wait tcp://localhost:3306 -timeout 1m
+  #install mysql client
+      - run: sudo apt-get install mysql-client
       # create databases
       - run: mysql -h 127.0.0.1 -u root -e "create database kodilla_course"
       # Download and cache dependencies
