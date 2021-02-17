@@ -51,7 +51,7 @@ class DbManagerTestSuite {
 
         //When
         String sqlQuery = "SELECT u.*, count(*) AS POST_QUANTITY " +
-                "FROM users u, posts p " +
+                "FROM USERS u, POSTS p " +
                 "WHERE u.ID = p.USER_ID " +
                 "GROUP BY u.ID " +
                 "HAVING count(*) >= 2 " +
