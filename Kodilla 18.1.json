@@ -1,0 +1,11 @@
+{
+    "carName": "Civic",
+    "carBrand": "Honda",
+    "carSeat1": [{
+        "seatOne": ["Nylon","Blue"],
+        "seatTwo": ["Vinyl","Black"],
+        "seatThree": ["Leather","Red"],
+        "seatFour": ["Alcantara","Black"]
+    }],
+    "Engine capacity": "2,997 cc"
+}
