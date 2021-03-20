@@ -7,12 +7,17 @@ import com.kodilla.sudoku.game.GameRunner;
 
 public class SudokuGame {
 
-    private static final GameApproval sudokuApproval = new GameApproval();
-    private static final GameRunner gameRunner = new GameRunner();
-    private static final GameResults gameResults = new GameResults();
-    private static final GameFinish gameFinish = new GameFinish();
+    GameApproval sudokuApproval = new GameApproval();
+    GameRunner gameRunner = new GameRunner();
+    GameResults gameResults = new GameResults();
+    GameFinish gameFinish = new GameFinish();
 
     public static void main(String[] args) {
+        SudokuGame sudokuGame = new SudokuGame();
+        sudokuGame.sudokuRunner();
+    }
+
+    public void sudokuRunner() {
         boolean gameFinished = false;
         while (!gameFinished) {
             gameResults.showSudokuResults(gameRunner.run(sudokuApproval.acceptOrReEnter()));
