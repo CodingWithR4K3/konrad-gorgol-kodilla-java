@@ -4,10 +4,12 @@ import com.kodilla.patterns2.facade.ShopService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 
+@EnableAspectJAutoProxy
 @Service
 public class OrderFacade {
 
@@ -25,7 +27,6 @@ public class OrderFacade {
         LOGGER.info("Registering new order, ID: " + orderId);
         if (orderId < 0) {
             LOGGER.error(OrderProcessingException.ERR_NOT_AUTHORISED);
-            wasError = true;
             throw new OrderProcessingException(OrderProcessingException.ERR_NOT_AUTHORISED);
         }
         try {
