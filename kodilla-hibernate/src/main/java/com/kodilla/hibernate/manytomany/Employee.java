@@ -11,6 +11,10 @@ import java.util.List;
         name = "Employee.retrieveByEmployeeLastName",
         query = "FROM Employee WHERE lastname = :LASTNAME"
 )
+@NamedQuery(
+        name = "Employee.selectEmployeesWithName",
+        query = "FROM Employee WHERE lastname LIKE CONCAT('%', :ARG , '%')"
+)
 @Entity
 @Table(name = "EMPLOYEES")
 public class Employee {
