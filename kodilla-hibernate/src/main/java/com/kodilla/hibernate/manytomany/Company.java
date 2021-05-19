@@ -12,6 +12,10 @@ import java.util.List;
         query = "SELECT * FROM companies WHERE company_name LIKE CONCAT(SUBSTRING(:THREEFIRSTLETTERS FROM 1 FOR 3), '%')",
         resultClass = Company.class
 )
+@NamedQuery(
+        name = "Company.selectCompaniesWithNameLike",
+        query = "FROM Company WHERE name LIKE CONCAT('%', :ARG , '%')"
+)
 @Entity
 @Table(name = "COMPANIES")
 public class Company {
